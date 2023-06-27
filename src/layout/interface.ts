@@ -1,0 +1,3 @@
+interface IBreadcrumbList {
+  name: string
+}
