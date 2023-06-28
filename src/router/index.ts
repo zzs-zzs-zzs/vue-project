@@ -38,6 +38,11 @@ const routes = [
         name: 'router页面',
         component: () => import('../views/testPage/RouterPage/RouterPage.vue')
       },
+      {
+        path: 'slotPage',
+        name: 'slot页面',
+        component: () => import('../views/testPage/SlotPage/SlotPage.vue')
+      },
     ]
   },
 ]

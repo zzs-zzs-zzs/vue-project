@@ -73,10 +73,10 @@ const router = useRouter()
 const commonStore = useStore()
 
 router.beforeEach(async (to, from, next) => {
-  const fullPath = to.fullPath
-  console.log("%c [ fullPath ]-65", "font-size:13px; background:pink; color:#bf2c9f;", fullPath)
-  initRoute(fullPath)
-  activeMenu.value = fullPath
+  const path = to.path
+  console.log("%c [ fullPath ]-65", "font-size:13px; background:pink; color:#bf2c9f;", to.path)
+  initRoute(path)
+  activeMenu.value = path
   next()
 })
 

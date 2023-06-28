@@ -29,5 +29,6 @@ declare module 'vue' {
     RefCom: typeof import('./src/components/RefCom.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SlotCom: typeof import('./src/components/SlotCom.vue')['default']
   }
 }
