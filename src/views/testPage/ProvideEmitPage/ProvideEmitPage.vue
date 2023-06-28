@@ -1,17 +1,21 @@
 <template>
   <main>
     <el-input v-model="msg" placeholder="修改msg" />
-    <HelloWorld :msg="msg" @updateMsg="updateMsg" />
+    <ProvideEmitCom :msg="msg" @updateMsg="updateMsg" />
+    <el-button @click="handleArrProps">provideData新增/修改num属性</el-button>
   </main>
 </template>
 
 <script setup lang="ts">
-import HelloWorld from '@/components/HelloWorld.vue'
+import ProvideEmitCom from '@/components/ProvideEmitCom.vue'
 import { ref, provide, reactive } from "vue"
 
-const msg = ref("这是首页")
+const msg = ref("这是provide、emitPage父子传值页")
 
-const provideData = reactive({
+const provideData: {
+  msg: string
+  num?: number
+} = reactive({
   msg: "这是provide提供的数据"
 })
 
@@ -22,6 +26,10 @@ provide("provideData", provideData)
 const updateMsg = (data: string) => {
   console.log("%c [ data ]-15", "font-size:13px; background:pink; color:#bf2c9f;", data)
   msg.value = data
+}
+
+const handleArrProps = () => {
+  provideData.num = Math.random() * 10
 }
 </script>
 

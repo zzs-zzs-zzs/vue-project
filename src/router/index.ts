@@ -19,9 +19,9 @@ const routes = [
     icon: "Reading",
     children: [
       {
-        path: 'test',
-        name: 'test页面',
-        component: () => import('../views/test/test.vue')
+        path: 'provideEmitPage',
+        name: 'provide、emit父子传值页面',
+        component: () => import('../views/testPage/ProvideEmitPage/ProvideEmitPage.vue')
       },
     ]
   },

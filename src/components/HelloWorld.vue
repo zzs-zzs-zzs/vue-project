@@ -6,14 +6,30 @@
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
     </h3>
+    <div>computed执行次数{{computedMsg}}</div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { watch, computed, ref } from "vue"
 
-defineProps<{
+const computedChangTime = ref(0)
+
+/** 定义props */
+const props = defineProps<{
   msg: string
 }>()
+
+/** 监听数据父组件props.msg变化 */
+watch(() => props.msg, (nweVal, oldVal) => {
+  console.log("%c [ nweVal, oldVal ]-19", "font-size:13px; background:pink; color:#bf2c9f;", nweVal, oldVal)
+})
+
+/** 监听props.msg修改的次数 */
+const computedMsg = computed(() => {
+  computedChangTime.value++
+  return `${props.msg}-computed执行${computedChangTime.value}次`
+})
 </script>
 
 <style scoped>

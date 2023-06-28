@@ -7,19 +7,33 @@
         <template v-for="route in routes">
           <el-sub-menu v-if="route.children" :index="route.path">
             <template #title>
-              <component :is="route.icon" style="width: 18px; height: 18px; padding-right: 5px;"></component>
-              {{ route.name }}
+              <el-tooltip :content="route.name" placement="right" :offset="55">
+                <div class="menu-title">
+                  <div class="menu-icon">
+                    <component :is="route.icon" style="width: 18px; height: 18px; padding-right: 5px;"></component>
+                  </div>
+                  <div class="menu-title-text ellipsis-title-text">{{ route.name }}</div>
+                </div>
+              </el-tooltip>
             </template>
-            <el-menu-item v-for="childRoute in route.children" :key="childRoute.path" :index="`${route.path}/${childRoute.path}`" @click="handleRouteClick(`${route.path}/${childRoute.path}`)">
-              {{ childRoute.name }}
-            </el-menu-item>
+            <el-tooltip v-for="childRoute in route.children" :key="childRoute.path" :content="childRoute.name" placement="right">
+              <el-menu-item class="long-text" :index="`${route.path}/${childRoute.path}`" @click="handleRouteClick(`${route.path}/${childRoute.path}`)">
+                {{ childRoute.name }}
+              </el-menu-item>
+            </el-tooltip>
           </el-sub-menu>
-          <el-menu-item v-else :key="route.path" :index="route.path" @click="handleRouteClick(route.path)">
-            <template #title>
-              <component :is="route.icon" style="width: 18px; height: 18px; padding-right: 5px;"></component>
-              {{ route.name }}
-            </template>
-          </el-menu-item>
+          <el-tooltip v-else :content="route.name" placement="right">
+            <el-menu-item :key="route.path" :index="route.path" @click="handleRouteClick(route.path)">
+              <template #title>
+                <div class="menu-title">
+                  <div class="menu-icon">
+                    <component :is="route.icon" style="width: 18px; height: 18px; padding-right: 5px;"></component>
+                  </div>
+                  <div class="menu-title-text">{{ route.name }}</div>
+                </div>
+              </template>
+            </el-menu-item>
+          </el-tooltip>
         </template>
       </el-menu>
     </el-aside>
@@ -110,4 +124,31 @@ const setBreadcrumbList = (path: string) => {
   height: 100%;
   overflow-x: hidden;
 }
+.long-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap !important;
+  display: block;
+}
+.menu-title {
+  display: flex;
+  align-items: center;
+  min-width: 135px;
+}
+.menu-title-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 145px;
+}
+.ellipsis-title-text {
+  max-width: 135px;
+}
+.menu-icon {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 1px;
+}
+
 </style>
