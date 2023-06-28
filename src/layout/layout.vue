@@ -95,7 +95,7 @@ const handleRouteClick = (path: string) => {
 const setBreadcrumbList = (path: string) => {
   const paths = path.split("/")
   paths.shift()
-  breadcrumbList.value = paths.map((item) => { return { name: item } })
+  breadcrumbList.value = paths.map((item) => { return { name: item.split("?")[0] } })
 }
 
 </script>

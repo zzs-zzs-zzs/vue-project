@@ -33,6 +33,11 @@ const routes = [
         name: 'store页面',
         component: () => import('../views/testPage/TestStore/TestStore.vue')
       },
+      {
+        path: 'routerPage',
+        name: 'router页面',
+        component: () => import('../views/testPage/RouterPage/RouterPage.vue')
+      },
     ]
   },
 ]
