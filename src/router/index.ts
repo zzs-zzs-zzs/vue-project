@@ -28,6 +28,11 @@ const routes = [
         name: 'ref父子传值页面',
         component: () => import('../views/testPage/Ref/Ref.vue')
       },
+      {
+        path: 'store',
+        name: 'store页面',
+        component: () => import('../views/testPage/TestStore/TestStore.vue')
+      },
     ]
   },
 ]

@@ -3,10 +3,13 @@ import * as Icons from "@element-plus/icons-vue"
 import { createApp } from 'vue'
 import App from './App.vue'
 import { router } from './router'
+import commonStore from "@/store/commonStore"
 
 const app = createApp(App)
 
 app.use(router)
+
+app.use(commonStore)
 
 app.mount('#app')
 

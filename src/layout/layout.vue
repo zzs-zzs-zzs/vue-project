@@ -47,6 +47,7 @@
           <!-- 面包屑项 -->
           <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.name" :index="index">{{ item.name }}</el-breadcrumb-item>
         </el-breadcrumb>
+        <div class="user-name">{{commonStore.state.userName}}</div>
       </el-header>
 
       <!-- 主体内容 -->
@@ -61,12 +62,15 @@
 import { routes } from "@/router/index"
 import { ref } from "vue"
 import { useRouter } from "vue-router"
+import { useStore } from "vuex"
 
 const activeMenu = ref()
 
 const breadcrumbList = ref<IBreadcrumbList[]>([])
 
 const router = useRouter()
+
+const commonStore = useStore()
 
 router.beforeEach(async (to, from, next) => {
   const fullPath = to.fullPath
@@ -111,6 +115,8 @@ const setBreadcrumbList = (path: string) => {
   background-color: white;
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .el-main {
@@ -149,6 +155,12 @@ const setBreadcrumbList = (path: string) => {
   align-items: center;
   position: relative;
   top: 1px;
+}
+.user-name {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  cursor: pointer;
 }
 
 </style>
