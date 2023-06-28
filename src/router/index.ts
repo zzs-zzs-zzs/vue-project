@@ -23,6 +23,11 @@ const routes = [
         name: 'provide、emit父子传值页面',
         component: () => import('../views/testPage/ProvideEmitPage/ProvideEmitPage.vue')
       },
+      {
+        path: 'ref',
+        name: 'ref父子传值页面',
+        component: () => import('../views/testPage/Ref/Ref.vue')
+      },
     ]
   },
 ]
