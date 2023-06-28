@@ -45,6 +45,10 @@ const routes = [
       },
     ]
   },
+  {
+    path: '/noFound',
+    component: () => import('../views/NoFount.vue')
+  },
 ]
 
 const router = createRouter({

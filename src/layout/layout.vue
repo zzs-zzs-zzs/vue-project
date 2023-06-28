@@ -22,7 +22,7 @@
               </el-menu-item>
             </el-tooltip>
           </el-sub-menu>
-          <el-tooltip v-else :content="route.name" placement="right">
+          <el-tooltip v-else-if="route.name" :content="route.name" placement="right">
             <el-menu-item :key="route.path" :index="route.path" @click="handleRouteClick(route.path)">
               <template #title>
                 <div class="menu-title">
@@ -74,11 +74,31 @@ const commonStore = useStore()
 
 router.beforeEach(async (to, from, next) => {
   const path = to.path
+  const routerList = getAllRouterList()
+  if (!routerList.includes(path)) {
+    console.log("%c [  ]-81", "font-size:13px; background:pink; color:#bf2c9f;", )
+    next("/noFound")
+    return
+  }
   console.log("%c [ fullPath ]-65", "font-size:13px; background:pink; color:#bf2c9f;", to.path)
   initRoute(path)
   activeMenu.value = path
   next()
 })
+
+const getAllRouterList = (): string[] => {
+  const routerArr: string[] = []
+  routes.forEach((item) => {
+    if (item?.children?.length) {
+      item.children.forEach((element) => {
+        routerArr.push(`${item.path}/${element.path}`)
+      })
+    } else {
+      routerArr.push(item.path!)
+    }
+  })
+  return routerArr
+}
 
 const initRoute = (path: string) => {
   setBreadcrumbList(path)
