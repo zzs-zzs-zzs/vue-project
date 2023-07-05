@@ -7,7 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ChildComChangeParentComValue1Com: typeof import('./src/components/ChildComChangeParentComValue1Com.vue')['default']
     ChildComChangeParentComValueCom: typeof import('./src/components/ChildComChangeParentComValueCom.vue')['default']
+    copy: typeof import('./src/components/ChildComChangeParentComValueCom copy.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']

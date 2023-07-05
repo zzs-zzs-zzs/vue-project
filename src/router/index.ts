@@ -48,6 +48,11 @@ const routes = [
         name: 'v-model:xxx传值，子组件修改父组件值',
         component: () => import('../views/testPage/ChildComChangeParentComValue/ChildComChangeParentComValue.vue')
       },
+      {
+        path: 'ChildComChangeParentComValue1',
+        name: '引用类型，子组件修改父组件值',
+        component: () => import('../views/testPage/ChildComChangeParentComValue1/ChildComChangeParentComValue1.vue')
+      },
     ]
   },
   {
