@@ -43,6 +43,11 @@ const routes = [
         name: 'slot页面',
         component: () => import('../views/testPage/SlotPage/SlotPage.vue')
       },
+      {
+        path: 'ChildComChangeParentComValue',
+        name: 'v-model:xxx传值，子组件修改父组件值',
+        component: () => import('../views/testPage/ChildComChangeParentComValue/ChildComChangeParentComValue.vue')
+      },
     ]
   },
   {
