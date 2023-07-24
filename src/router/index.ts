@@ -53,6 +53,11 @@ const routes = [
         name: '引用类型，子组件修改父组件值',
         component: () => import('../views/testPage/ChildComChangeParentComValue1/ChildComChangeParentComValue1.vue')
       },
+      {
+        path: 'Teleport',
+        name: 'Teleport将元素挂载到body上',
+        component: () => import('../views/testPage/Teleport/Teleport.vue')
+      },
     ]
   },
   {
