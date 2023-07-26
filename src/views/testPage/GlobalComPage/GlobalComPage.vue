@@ -1,0 +1,3 @@
+<template>
+  <GlobalCom></GlobalCom>
+</template>

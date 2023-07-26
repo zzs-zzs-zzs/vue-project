@@ -63,6 +63,11 @@ const routes = [
         name: 'Component内置组件',
         component: () => import('../views/testPage/Component/Component.vue')
       },
+      {
+        path: 'GlobalComPage',
+        name: '全局注册组件',
+        component: () => import('../views/testPage/GlobalComPage/GlobalComPage.vue')
+      },
     ]
   },
   {

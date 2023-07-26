@@ -4,12 +4,16 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { router } from './router'
 import commonStore from "@/store/commonStore"
+import GlobalCom from "@/components/GlobalCom.vue"
 
 const app = createApp(App)
 
 app.use(router)
 
 app.use(commonStore)
+
+// 注册全局组件
+app.component("GlobalCom", GlobalCom)
 
 app.mount('#app')
 
