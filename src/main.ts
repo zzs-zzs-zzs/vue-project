@@ -22,8 +22,10 @@ app.directive('focus', {
   }
 })
 
+// 注册路由
 app.use(router)
 
+// 注册store
 app.use(commonStore)
 
 // 注册全局组件
