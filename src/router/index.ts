@@ -68,6 +68,11 @@ const routes = [
         name: '全局注册组件',
         component: () => import('../views/testPage/GlobalComPage/GlobalComPage.vue')
       },
+      {
+        path: 'GlobalDirectiveAndFunc',
+        name: '全局注册指令和方法',
+        component: () => import('../views/testPage/GlobalDirectiveAndFunc/GlobalDirectiveAndFunc.vue')
+      },
     ]
   },
   {
