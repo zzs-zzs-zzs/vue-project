@@ -33,5 +33,9 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SlotCom: typeof import('./src/components/SlotCom.vue')['default']
+    Text1: typeof import('./src/components/Text1.vue')['default']
+    Text2: typeof import('./src/components/Text2.vue')['default']
+    TextCom1: typeof import('./src/components/TextCom1.vue')['default']
+    TextCom2: typeof import('./src/components/TextCom2.vue')['default']
   }
 }

@@ -58,6 +58,11 @@ const routes = [
         name: 'Teleport将元素挂载到body上',
         component: () => import('../views/testPage/Teleport/Teleport.vue')
       },
+      {
+        path: 'Component',
+        name: 'Component内置组件',
+        component: () => import('../views/testPage/Component/Component.vue')
+      },
     ]
   },
   {
